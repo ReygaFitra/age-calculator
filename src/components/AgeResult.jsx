@@ -6,9 +6,12 @@ const AgeResult = (props) => {
   const { AgeResultBodyStyle, AgeResultContentStyle, AgeResultStyle } = props;
   const { days, months, years, currentYear } = useAppStore();
 
-  const diffInDays = differenceInDays(new Date(years, months, 31), new Date(years, months, days));
-  const diffInMonths = differenceInMonths(new Date(years, 12, 31), new Date(years, months, days));
-  const diffInYears = differenceInYears(new Date(), new Date(years, months, days));
+  const currentDate = new Date();
+  const selectedDate = new Date(years, months - 1, days);
+
+  const diffInDays = differenceInDays(currentDate, selectedDate);
+  const diffInMonths = differenceInMonths(currentDate, selectedDate);
+  const diffInYears = differenceInYears(currentDate, selectedDate);
 
   return (
     <div className={AgeResultBodyStyle}>

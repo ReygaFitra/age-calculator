@@ -4,7 +4,7 @@ import { useAppStore } from '../stores/AppStore';
 
 const AgeResult = (props) => {
   const { AgeResultBodyStyle, AgeResultContentStyle, AgeResultStyle } = props;
-  const { days, months, years } = useAppStore();
+  const { days, months, years, currentYear } = useAppStore();
 
   const diffInDays = differenceInDays(new Date(years, months, 31), new Date(years, months, days));
   const diffInMonths = differenceInMonths(new Date(years, 12, 31), new Date(years, months, days));
@@ -13,15 +13,15 @@ const AgeResult = (props) => {
   return (
     <div className={AgeResultBodyStyle}>
       <div className={AgeResultContentStyle}>
-        <div className={AgeResultStyle}>{years === '' ? '--' : diffInYears}</div>
+        <div className={AgeResultStyle}>{years === '' || years > currentYear ? '--' : diffInYears}</div>
         Years
       </div>
       <div className={AgeResultContentStyle}>
-        <div className={AgeResultStyle}>{months === '' ? '--' : diffInMonths}</div>
+        <div className={AgeResultStyle}>{months === '' || months > 12 ? '--' : diffInMonths}</div>
         Months
       </div>
       <div className={AgeResultContentStyle}>
-        <div className={AgeResultStyle}>{days === '' ? '--' : diffInDays}</div>
+        <div className={AgeResultStyle}>{days === '' || days > 31 ? '--' : diffInDays}</div>
         Days
       </div>
     </div>

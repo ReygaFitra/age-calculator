@@ -1,6 +1,5 @@
 import React from 'react';
-import { useAppStore } from '../stores/AppStore';
-
+import { useAppStore } from '../stores/AppStores';
 const Input = (props) => {
   const { inputStyle, inputStyleWarning, inputBodyStyle, inputContentStyle, inputTitleStyle, title1, title2, title3 } = props;
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { differenceInDays, differenceInMonths, differenceInYears } from 'date-fns';
-import { useAppStore } from '../stores/AppStore';
+import { useAppStore } from '../stores/AppStores';
 
 const AgeResult = (props) => {
   const { AgeResultBodyStyle, AgeResultContentStyle, AgeResultStyle } = props;
